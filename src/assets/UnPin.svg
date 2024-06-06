@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.53 24.97">
+  <path d="m8.65,17.36l-3.5,6.07c-.15.26-.39.46-.7.57l-.83.3-.15-.87c-.06-.32,0-.63.14-.89l3.5-6.07,1.53.88h.01Z" fill="#000" stroke="#000" stroke-miterlimit="10"/>
+  <path d="m15.65,19.98c-.23.61-.87.92-1.35.64L1.26,13.1c-.29-.17-.35-.61-.11-.95.57-.79,1.6-1.99,3.09-2.76,1.25-.66,2.31-.73,2.98-.69.35.02.7-.19.91-.53l2.94-5.09c.04-.06.05-.13.05-.2l-.03-1.75c.06-.11.2-.16.3-.1l8.62,4.97c.1.06.14.2.07.31l-1.53.85c-.06.03-.11.08-.15.15l-2.94,5.1c-.2.34-.22.75-.04,1.04.33.55.72,1.38.83,2.55.15,1.54-.23,2.98-.6,3.97h0Z" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2"/>
+  <line x1="1.61" y1="3.21" x2="21.9" y2="20.03" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.26"/>
+  <line x1=".74" y1="3.72" x2="21.03" y2="20.54" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width=".63"/>
+</svg>

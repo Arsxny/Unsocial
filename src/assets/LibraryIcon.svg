@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.28 22.79">
+  <rect x="0" width="5.5" height="22.79" rx="2" ry="2" fill="none" stroke-width="0"/>
+  <rect x="1" y="1" width="3.5" height="20.79" rx="1" ry="1" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.5"/>
+  <rect x="6.8" width="5.5" height="22.79" rx="2" ry="2" fill="none" stroke-width="0"/>
+  <rect x="7.8" y="1" width="3.5" height="20.79" rx="1" ry="1" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.5"/>
+  <rect x="14.76" y="3" width="5.5" height="19.79" rx="2" ry="2" transform="translate(-2.74 4.98) rotate(-15.01)" fill="none" stroke-width="0"/>
+  <rect x="15.76" y="4" width="3.5" height="17.79" rx="1" ry="1" transform="translate(-2.74 4.98) rotate(-15.01)" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="1.5"/>
+</svg>

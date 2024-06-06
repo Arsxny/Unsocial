@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.57 28.18">
+  <rect x="1" y="1" width="30.57" height="19.06" rx="2.8" ry="2.8" fill="none" stroke="#8c91a3" stroke-miterlimit="10" stroke-width="2"/>
+  <rect x="4.75" y="5.35" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="9.92" y="5.32" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="15.48" y="5.35" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="20.75" y="5.35" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="26.03" y="5.41" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <g>
+    <line x1="9" y1="24.59" x2="16.14" y2="27.18" fill="none" stroke="#8c91a3" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+    <line x1="16.43" y1="27.18" x2="23.57" y2="24.59" fill="none" stroke="#8c91a3" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+  <rect x="4.75" y="9.68" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="9.92" y="9.68" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="15.48" y="9.71" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="20.75" y="9.71" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="26.03" y="9.68" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="4.75" y="13.86" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="26.03" y="13.86" width="1.62" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+  <rect x="9.92" y="13.86" width="12.44" height="1.62" rx=".47" ry=".47" fill="#8c91a3" stroke="#8c91a3" stroke-miterlimit="10"/>
+</svg>

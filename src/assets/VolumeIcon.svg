@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.65 31.33">
+  <rect x="7.65" y="6.52" width="1" height="21" fill="#000" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+  <rect x="1" y="25.2" width="7.65" height="5.13" rx="2.5" ry="2.5" fill="#000" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+  <path d="m26.27,5.64l-18.25,3.61c-.21.04-.38-.11-.38-.35v-3.79c0-.23.17-.46.38-.5L26.27,1.01c.21-.04.38.11.38.35v3.79c0,.23-.17.46-.38.5Z" fill="#000" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+  <rect x="25.65" y="3.52" width="1" height="21" fill="#000" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+  <rect x="19" y="22.3" width="7.65" height="5.1" rx="2.5" ry="2.5" fill="#000" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+</svg>
