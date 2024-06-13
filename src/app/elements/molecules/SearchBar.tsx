@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../molecules/elements.module.css";
-import SearchIcon from "@/assets/SearchIcon.svg";
+import styles from "@/app/elements/molecules/elements.module.css";
+import SearchIcon from "@/app/assets/SearchIcon.svg";
 
 const SearchBar: React.FC = () => {
     return (

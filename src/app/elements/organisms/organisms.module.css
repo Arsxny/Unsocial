@@ -1,0 +1,134 @@
+
+.sideBar {
+    width: 250px;
+    background-color: #000000;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sideBarList {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.link {
+    height: 50px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-block: 20px;
+    padding-left: 15px;
+}
+
+.link:hover {
+    background-color: #333;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.icon {
+    width: 28px; 
+    height: 28px;
+}
+
+.icon:hover {
+    stroke: grey;
+    fill: grey
+}
+
+.title {
+    font-weight: 400;
+    font-size: x-large;
+    margin-inline: 25px;
+    margin-top: 3px;
+}
+
+.profileInfo {
+    flex-direction: row;
+    display: flex;
+    align-content: center;
+}
+
+.profileImage {
+    width: 65px; 
+    height: 65px;
+    border: #2d3748 solid 2px;
+    border-radius: 50px;
+    margin-block-start: 1rem;
+    object-fit: cover; 
+}
+
+.userInfo {
+    margin-block-start: 15px;
+    padding: 10px;
+}
+
+.name {
+    font-size: medium;
+    font-size:  large;
+}
+
+.userName {
+    color: #A3A3A3;
+    margin-block-start: -0.25rem;
+}
+
+.logOutLink {
+    height: 50px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-block: 30px;
+    padding-left: 15px;
+    color: red;
+    width: fit-content;
+}
+
+.logOutLink:hover {
+    background-color: #333;
+    border-radius: 50px;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.logOutText {
+    font-weight: 400;
+    font-size: x-large;
+    margin-inline: 25px;
+    margin-top: 3px;
+    color: red;
+}
+
+.logOutLink:hover .logOutText {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.logOutIcon {
+    width: 28px; 
+    height: 28px;
+    stroke: red;
+    transition: stroke 0.3s ease;
+}
+
+.logOutLink:hover .logOutIcon {
+    animation-name: spin;
+    animation-duration: 200ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    stroke: currentColor;
+}
+  
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
+}

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Tabs, Tab, Box, Typography } from '@mui/material';
-import { TabComponentType, TabProps } from '../types';
+import { TabComponentType, TabProps } from '../../types';
 import { tabStyles } from '../organisms/SideBar/TabStyles';
 
 const TabPanel = (props: TabProps) =>  {

@@ -1,3 +1,5 @@
+import { User } from "firebase/auth";
+
 export type TabProps = {
     children: React.ReactNode;
     index: number;
@@ -11,3 +13,8 @@ export type TabComponentType = {
 export type SideBarType = {
     headerHeight: number;
 }
+
+export type AuthType = {
+    user: User | null;
+    setUser: (user: User) => void;
+  };

@@ -1,20 +1,22 @@
-import React from "react";
+"use client";
+import React, {useState, useEffect} from "react";
 import { SideBarData } from "./SideBarData";
 import Link from "next/link";
-import styles from "@/elements/organisms/organisms.module.css"
-import bla from "@/assets/f75kgip037f01.png"
-import { SideBarType } from "@/elements/types";
+import { useRouter } from "next/router";
+import styles from "@/app/elements/organisms/organisms.module.css"
+import { SideBarType } from "@/app/types";
+import SendIcon from "@/app/assets/SendIcon.svg";
+import { signOutFirebase } from "@/app/backend/AuthService";
 
 const SideBar: React.FC<SideBarType> = (props) => {
-
-    const { headerHeight } = props;
+    const { headerHeight, profileImage, username, name } = props;
     return (
         <div className={styles.sideBar} style={{ top: headerHeight + 1}}>
             <div className={styles.profileInfo}>
-                <img src={bla.src} className={styles.profileImage} />
+                <img src={profileImage} className={styles.profileImage} />
                 <div className={styles.userInfo}>
-                    <p className={styles.name}>Arseny</p>
-                    <p className={styles.userName}>@Arsxnx</p>
+                    <p className={styles.name}>{name}</p>
+                    <p className={styles.userName}>@{username}</p>
                 </div>
             </div>
             <ul className={styles.sideBarList}>
@@ -29,6 +31,12 @@ const SideBar: React.FC<SideBarType> = (props) => {
                     );
                 })}
             </ul>
+            <Link href="/u/start" onClick={signOutFirebase} className={styles.logOutLink}>
+                <div className={styles.logOutIcon}>
+                    <SendIcon stroke="currentColor" />
+                </div>
+                <div className={styles.logOutText}>Log out</div>
+            </Link>
         </div>
     );
 };

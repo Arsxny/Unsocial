@@ -1,0 +1,83 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, transparent 20%, #1e1e1e, #3e3e3e);
+  color: white;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.leftSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding: 20px;
+}
+
+.appIcon {
+  width: 100px;
+  height: 130px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: start;
+  font-weight: bold;
+  color: transparent;
+  background-clip: text; 
+  background-image: linear-gradient(to right, #7787BA, #38425e 60%);
+}
+
+.rightSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  margin-bottom: 5rem;
+}
+
+.options {
+  flex-direction: column;
+  align-self: center;
+}
+
+.startText {
+  align-self: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: transparent;
+  background-clip: text; 
+  background-image: linear-gradient(to right, #38425e, #7787BA 60%);
+}
+
+.button {
+  background: linear-gradient(to right, #38425e , #7787BA);
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  width: 120px;
+  height: 50px;
+  margin: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.5s, transform 0.3s ease;
+  overflow: hidden;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #7787BA, #38425e);
+  transform: scale(1.05);
+}
+
