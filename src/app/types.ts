@@ -16,5 +16,10 @@ export type SideBarType = {
 
 export type AuthType = {
     user: User | null;
-    setUser: (user: User) => void;
-  };
+    setUser: (user: User ) => void;
+};
+
+export type HeightContextProps = {
+    height: number;
+    ref: React.RefObject<HTMLElement>;
+}

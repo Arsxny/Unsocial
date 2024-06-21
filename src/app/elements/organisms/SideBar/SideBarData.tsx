@@ -1,28 +1,28 @@
 import React from "react";
-import HomeTab from "@/app/assets/HomeTab.svg";
+import HomeTab from "@/app/assets/HomeTab";
 import ExploreTab from "@/app/assets/CompassIcon.svg";
 import MessageTab from "@/app/assets/MessageTab.svg";
-import ProfileTab from "@/app/assets/ProfileTab.svg";
+import ProfileTab from "@/app/assets/ProfileTab";
 
 export const SideBarData = [
     {
         title: "Home", 
-        icon: <HomeTab stroke="white" fill="white" strokeWidth="2"/>,
+        icon: <HomeTab stroke="currentColor" fill="currentColor"/>,
         link: "/u/home"
     },
     {
         title: "Explore", 
-        icon: <ExploreTab />,
-        link: "/explore"
+        icon: <ExploreTab stroke="currentColor" fill="currentColor"/>,
+        link: "/u/explore"
     },
     {
         title: "Message", 
-        icon: <MessageTab />,
-        link: "/message"
+        icon: <MessageTab stroke="currentColor" fill="currentColor"/>,
+        link: "/u/message"
     },
     {
         title: "Profile", 
-        icon: <ProfileTab />,
-        link: "/profile"
+        icon: <ProfileTab stroke="currentColor" fill="currentColor"/>,
+        link: "/u/profile"
     },
 ]

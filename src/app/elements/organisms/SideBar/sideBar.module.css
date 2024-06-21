@@ -1,11 +1,15 @@
 
 .sideBar {
     width: 250px;
-    background-color: #000000;
+    background-color: #121212;
+    border-right: 0.25px solid #333;
     position: sticky;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-height: 100vh;
+    top: 0;
+    bottom: 0;
 }
 
 .sideBarList {
@@ -21,6 +25,7 @@
     align-items: center;
     margin-block: 20px;
     padding-left: 15px;
+    color: white
 }
 
 .link:hover {
@@ -32,11 +37,7 @@
 .icon {
     width: 28px; 
     height: 28px;
-}
-
-.icon:hover {
-    stroke: grey;
-    fill: grey
+    color: transparent;
 }
 
 .title {
@@ -46,10 +47,30 @@
     margin-top: 3px;
 }
 
+.activeLink {
+    height: 50px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-block: 20px;
+    padding-left: 15px;
+    color: white;
+}
+
+.activeIcon {
+    color: white;
+}
+
+.activeTitle {
+    font-weight: 700;
+}
+
 .profileInfo {
     flex-direction: row;
     display: flex;
     align-content: center;
+    color: white;
 }
 
 .profileImage {
@@ -67,13 +88,65 @@
 }
 
 .name {
-    font-size: medium;
-    font-size:  large;
+    font-size: large;
+    font-weight: 500;
 }
 
 .userName {
     color: #A3A3A3;
     margin-block-start: -0.25rem;
+}
+
+.postLink {
+    height: 50px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-block: 20px;
+    padding-left: 15px;
+    color: #121212;
+    width: fit-content;
+    background-color: white;
+    border-radius: 50px;
+    position: absolute;
+}
+
+.postLink:hover {
+    border-radius: 50px;
+    color: white;
+    background-color: #333;
+    transition: transform 0.3s ease;
+    transform: scale(1.05);
+}
+
+
+.postText {
+    font-weight: 600;
+    font-size: x-large;
+    margin-inline: 25px;
+    margin-top: 3px;
+    color: #121212;
+}
+
+.postLink:hover .postText {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.postIcon {
+    width: 28px; 
+    height: 28px;
+    stroke: #121212;
+    transition: color 0.3s ease;
+}
+
+.postLink:hover .postIcon {
+    animation-name: spin;
+    animation-duration: 200ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    stroke: currentColor;
 }
 
 .logOutLink {
@@ -82,10 +155,10 @@
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    margin-block: 30px;
     padding-left: 15px;
     color: red;
     width: fit-content;
+    margin-bottom: 5rem;
 }
 
 .logOutLink:hover {
@@ -132,3 +205,4 @@
         transform: rotate(-90deg);
     }
 }
+

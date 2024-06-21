@@ -4,7 +4,6 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, Us
 import { ref as dbRef, update } from "firebase/database";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import { updateUserData } from "./UserDataService";
-import { uploadProfileImage } from "./UserDataService";
 import { AuthType } from "../types";
 import { create } from "zustand";
 

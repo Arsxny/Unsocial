@@ -23,19 +23,4 @@ const getUserData = async (uid: string) => {
     }
 };
 
-const uploadProfileImage = async (uid, imageFile) => {
-    if (!storage) {
-      throw new Error("Firebase storage is not initialized");
-    }
-    try {
-      const storageReference = storageRef(storage, `${uid}/${imageFile}`);
-      const snapshot = await uploadBytes(storageReference, imageFile);
-      const downloadURL = await getDownloadURL(snapshot.ref);
-      return downloadURL;
-    } catch (error) {
-      console.error("Error uploading profile image:", error);
-      throw error;
-    }
-  };
-
-export {updateUserData, getUserData, uploadProfileImage};
+export {updateUserData, getUserData};

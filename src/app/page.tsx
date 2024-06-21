@@ -5,25 +5,24 @@ import { useAuthStore } from "./backend/AuthService";
 import { User } from "firebase/auth";
 import { auth, onAuthStateChanged } from "./firebase";
 import HomePage from "./u/home/HomePage";
+import { useRouter } from "next/navigation";
 
 export default function Main() {
   const { user, setUser } = useAuthStore();
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Auth state changed: ", currentUser);
       setUser(currentUser);
     });
 
     return () => unsubscribe();
   }, [setUser]);
 
-  if (!user) {
-    return (
-      <StartPage />
-    )
+  if (user) {
+    return <HomePage />;
   } else {
-    return (
-      <HomePage />
-    );
-  };
+    return <StartPage />;
+  }
 }

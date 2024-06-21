@@ -13,6 +13,22 @@ export const tabStyles: SxProps = {
     transition: 'background-color 0.3s ease',
   },
   '&.Mui-selected:hover': {
-    backgroundColor: '#000000',
+    backgroundColor: '#333',
   },
 };
+
+export const ProfileTabStyles: SxProps = {
+  fontSize: 17,
+  textTransform: "none",
+  color: '#A3A3A3',
+  paddingInline: 5,
+  '&.Mui-selected': {
+    color: 'white',
+  },
+  '&:hover': {
+    transition: 'background-color 0.3s ease',
+  },
+  '&.Mui-selected:hover': {
+  },
+};
+

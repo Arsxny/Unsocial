@@ -3,15 +3,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import styles from '@/app/u/home/HomePage.module.css';
-import SearchBar from '@/app/elements/molecules/SearchBar';
+import SearchBar from '@/app/elements/molecules/SearchBar/SearchBar';
 import AppIcon from "@/app/assets/AppIcon.png";
 import SideBar from '@/app/elements/organisms/SideBar/SideBar';
-import TabComponent from '@/app/elements/molecules/TabPanel';
+import {TabComponent} from '@/app/elements/molecules/TabPanel/TabPanel';
 import { getUserData } from '@/app/backend/UserDataService';
-import { auth} from "@/app/firebase"
+import { auth} from "@/app/firebase";
+import Header from '@/app/elements/organisms/Header/Header';
 
 const HomePage: React.FC = () => {
-  const [height, setHeight] = useState(0);
 
   const user = auth.currentUser;
 
@@ -19,17 +19,10 @@ const HomePage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
 
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (ref.current) {
-        setHeight(ref.current.clientHeight);
-    }
-  }, []);
-
   useEffect(() => {
     const fetchUserdata = async () => {
       try {
+        const user = auth.currentUser;
         if (user) {
           const userdata = await getUserData(user.uid);
           setProfileImage(userdata.profileImage ?? '');
@@ -46,14 +39,11 @@ const HomePage: React.FC = () => {
 
     return (
       <div className={styles.container}>
-        <header className={styles.header} ref={ref}>
-        <img src={AppIcon.src} alt="Icon" className={styles.appIcon} />
-          <SearchBar />
-        </header>
+        <Header />
         <div className={styles.content}>
-            <SideBar headerHeight={height} profileImage={profileImage} username={username} name={name}/>
+        <SideBar profileImage={profileImage} username={username} name={name}/>
           <main className={styles.main}>
-          <TabComponent headerHeight={height}/>
+          <TabComponent/>
           </main>
         </div>
       </div>

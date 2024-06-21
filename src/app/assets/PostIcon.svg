@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.5 38.5">
+  <line x1="19.25" y1="29.52" x2="19.25" y2="8.55" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.63"/>
+  <line x1="8.77" y1="19.04" x2="29.73" y2="19.04" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.63"/>
+  <circle cx="19.25" cy="19.25" r="17.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3.5"/>
+</svg>

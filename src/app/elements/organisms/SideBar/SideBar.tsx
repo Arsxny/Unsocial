@@ -1,17 +1,56 @@
 "use client";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { SideBarData } from "./SideBarData";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import styles from "@/app/elements/organisms/organisms.module.css"
+import { useRouter, usePathname } from "next/navigation";
+import styles from "./sideBar.module.css"
 import { SideBarType } from "@/app/types";
 import SendIcon from "@/app/assets/SendIcon.svg";
+import PostIcon from "@/app/assets/PostIcon.svg";
 import { signOutFirebase } from "@/app/backend/AuthService";
+import { HeightContext } from "../../context/HeightContext";
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Avatar, Button } from "@mui/material";
+import { Modal } from "@mui/material";
+import { useSpring, animated } from "react-spring";
+import SpringModal from "./PostModal";
 
 const SideBar: React.FC<SideBarType> = (props) => {
-    const { headerHeight, profileImage, username, name } = props;
+    const { profileImage, username, name } = props;
+
+    const heightContext = useContext(HeightContext);
+
+    if (!heightContext) {
+        return null;
+    }
+    
+    const { height } = heightContext;
+    
+    const [activeLink, setActiveLink] = useState('');
+    const router = useRouter();
+    const pathname = usePathname()
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    useEffect(() => {
+        setActiveLink(pathname);
+    }, [pathname]);
+
+    useEffect(() => {
+        console.log("is it open?", open);
+    }, [open]);
+
     return (
-        <div className={styles.sideBar} style={{ top: headerHeight + 1}}>
+        <div className={styles.sideBar} style={{}}>
+            <Drawer
+                variant="permanent"
+                sx={{
+                width: 250,
+                flexShrink: 0,
+                [`& .MuiDrawer-paper`]: { width: 250, boxSizing: 'border-box', backgroundColor: '#121212',  top: height + 1, bottom: 0, paddingLeft: 5  },
+                }}
+            >
             <div className={styles.profileInfo}>
                 <img src={profileImage} className={styles.profileImage} />
                 <div className={styles.userInfo}>
@@ -21,22 +60,34 @@ const SideBar: React.FC<SideBarType> = (props) => {
             </div>
             <ul className={styles.sideBarList}>
                 {SideBarData.map((val, key) => {
+                    const isActive = activeLink === val.link;
                     return (
                         <li key={key}>
-                        <Link href={val.link} className={styles.link}>
-                            <div className={styles.icon}>{val.icon}</div>
-                            <div className={styles.title}>{val.title}</div>
-                        </Link>
-                      </li>
+                            <Link 
+                                href={val.link} 
+                                className={`${styles.link} ${isActive ? styles.activeLink : ''}`} 
+                                onClick={() => setActiveLink(val.link)}>
+                                    <div className={`${styles.icon} ${isActive ? styles.activeIcon : ''}`}>{val.icon}</div>
+                                    <div className={`${styles.title} ${isActive ? styles.activeTitle : ''}`}>{val.title}</div>
+                            </Link>
+                        </li>
                     );
                 })}
+                <button className={styles.postLink} onClick={handleOpen}>
+                    <div className={styles.postIcon}>
+                        <PostIcon />
+                    </div>
+                    <div className={styles.postText}>Create</div>
+                </button>
+                <SpringModal open={open} handleClose={handleClose} />
             </ul>
             <Link href="/u/start" onClick={signOutFirebase} className={styles.logOutLink}>
                 <div className={styles.logOutIcon}>
-                    <SendIcon stroke="currentColor" />
+                    <SendIcon />
                 </div>
                 <div className={styles.logOutText}>Log out</div>
             </Link>
+            </Drawer>
         </div>
     );
 };
