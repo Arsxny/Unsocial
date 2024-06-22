@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useContext } from 'react';
-import styles from './profile.module.css';
+import styles from './other.module.css';
 import SearchBar from '@/app/elements/molecules/SearchBar/SearchBar';
 import AppIcon from "@/app/assets/AppIcon.png";
 import SideBar from '@/app/elements/organisms/SideBar/SideBar';
@@ -12,10 +12,16 @@ import { HeightContext } from '@/app/elements/context/HeightContext';
 import OptionIcon from '@/app/assets/OptionIcon.svg'
 import { ProfileTab } from '@/app/elements/molecules/TabPanel/TabPanel';
 import { useAuthStore } from '@/app/backend/AuthService';
+import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
-const ProfilePage: React.FC = () => {
+const OtherUserPage: React.FC = () => {
 
   const user = auth.currentUser;
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const otherUserId  = searchParams.get("otherUserId");
 
   const [profileImage, setProfileImage] = useState('');
   const [username, setUsername] = useState('');
@@ -24,9 +30,8 @@ const ProfilePage: React.FC = () => {
   useEffect(() => {
     const fetchUserdata = async () => {
       try {
-        const user = auth.currentUser;
-        if (user) {
-          const userdata = await getUserData(user.uid);
+        if (otherUserId) {
+          const userdata = await getUserData(otherUserId);
           setProfileImage(userdata.profileImage ?? '');
           setUsername(userdata.username);
           setName(userdata.name);
@@ -37,13 +42,13 @@ const ProfilePage: React.FC = () => {
     };
 
     fetchUserdata();
-  }, [user]);
+  }, [otherUserId]);
 
     return (
       <div className={styles.container}>
         <Header />
         <div className={styles.content}>
-            <SideBar profileImage={profileImage} username={username} name={name}/>
+            <SideBar />
           <main className={styles.main}>
             <div className={styles.profileInfo}>
                 <div className={styles.profileDetails}>
@@ -51,22 +56,21 @@ const ProfilePage: React.FC = () => {
                   <div className={styles.userInfo}>
                       <p className={styles.name}>{name}</p>
                       <p className={styles.userName}>@{username}</p>
+                        <button className={styles.followButton}>
+                          <p className={styles.followButtonText}>Follow</p>
+                        </button>
                   </div>
                 </div>
-              <button className={styles.edit}>
-                <p className={styles.editText}>Edit profile</p>
-                <div className={styles.optionIcon}><OptionIcon/></div>
-              </button>
             </div>
             <button className={styles.followInfo}>
               <p className={styles.followCount}> 116 <span className={styles.followText}>Following</span></p>
               <p className={styles.followCount}> 37.9K <span className={styles.followText}>Followers</span></p>
             </button>
-            <ProfileTab userId={user?.uid}/>
+            <ProfileTab userId={otherUserId}/>
           </main>
         </div>
       </div>
     );
   };
 
-export default ProfilePage;
+export default OtherUserPage;

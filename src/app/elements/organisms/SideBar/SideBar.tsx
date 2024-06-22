@@ -13,9 +13,34 @@ import { Drawer, List, ListItem, ListItemIcon, ListItemText, Avatar, Button } fr
 import { Modal } from "@mui/material";
 import { useSpring, animated } from "react-spring";
 import SpringModal from "./PostModal";
+import { auth } from "@/app/firebase";
+import { getUserData } from "@/app/backend/UserDataService";
 
-const SideBar: React.FC<SideBarType> = (props) => {
-    const { profileImage, username, name } = props;
+const SideBar: React.FC<SideBarType> = () => {
+
+    const user = auth.currentUser;
+
+    const [profileImage, setProfileImage] = useState('');
+    const [username, setUsername] = useState('');
+    const [name, setName] = useState('');
+  
+    useEffect(() => {
+      const fetchUserdata = async () => {
+        try {
+          const user = auth.currentUser;
+          if (user) {
+            const userdata = await getUserData(user.uid);
+            setProfileImage(userdata.profileImage ?? '');
+            setUsername(userdata.username);
+            setName(userdata.name);
+          }
+        } catch (error) {
+          console.error('Error fetching following posts:', error);
+        }
+      };
+  
+      fetchUserdata();
+    }, [user]);
 
     const heightContext = useContext(HeightContext);
 

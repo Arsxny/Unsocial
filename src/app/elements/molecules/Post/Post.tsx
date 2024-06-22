@@ -30,9 +30,8 @@ const Post: React.FC = ({ image, text, date, user }) => {
     useEffect(() => {
         const fetchUserdata = async () => {
           try {
-            const user = auth.currentUser;
             if (user) {
-              const userdata = await getUserData(user.uid);
+              const userdata = await getUserData(user);
               setProfileImage(userdata.profileImage ?? '');
               setUsername(userdata.username);
               setName(userdata.name);

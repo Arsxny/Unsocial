@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
       <div className={styles.container}>
         <Header />
         <div className={styles.content}>
-        <SideBar profileImage={profileImage} username={username} name={name}/>
+        <SideBar />
           <main className={styles.main}>
           <TabComponent/>
           </main>

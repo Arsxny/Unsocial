@@ -13,19 +13,28 @@ import { HeightContext } from '../../context/HeightContext';
 import { ref as dbRef, get } from 'firebase/database'
 import { database } from '@/app/firebase';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
     const heightContext = useContext(HeightContext);
     const [searchResults, setSearchResults] = useState([]);
 
-    const router = useRouter();
     const currentUser = auth.currentUser;
+
+    const router = useRouter();
 
     if (!heightContext) {
         return null;
     }
 
     const { ref } = heightContext;
+
+/*     const handleClick = (user) => {
+      router.push({
+        pathname: `/u/other/@${user.username}`, 
+        query: { otherUserId: user.key }
+      });
+    }; */
 
     const searchUsers = async (query) => {
         if (!query) {
@@ -38,13 +47,18 @@ const Header: React.FC = () => {
           const snapshot = await get(userRef);
           if (snapshot.exists()) {
             const users = snapshot.val();
+            const currentUserID = currentUser.uid;
             const results = Object.keys(users)
-              .map((uid) => users[uid])
+              .map((uid) => ({
+                key: uid,
+                ...users[uid]
+              }))
               .filter(
                 (user) =>
-                    user.uid !== currentUser!.uid &&
-                    (user.name.toLowerCase().includes(query.toLowerCase()) ||
-                      user.username.toLowerCase().includes(query.toLowerCase()))
+                  user.key !== currentUserID && (
+                    user.name.toLowerCase().includes(query.toLowerCase()) ||
+                    user.username.toLowerCase().includes(query.toLowerCase())
+                  )
                 );
             setSearchResults(results);
           }
@@ -65,13 +79,19 @@ const Header: React.FC = () => {
               {searchResults.length > 0 && (
                 <div className={styles.searchResults}>
                   {searchResults.map((user) => (
-                    <button key={user.uid} className={styles.userItem} onClick={() => router.push(`/u/@${user.username}`)}>
+                    <Link 
+                      key={user.key} 
+                      className={styles.userItem}  
+                      href={{
+                        pathname: `/u/${user.username}`,
+                        query: { otherUserId: user.key }
+                      }}>
                       <img src={user.profileImage} alt="Profile" className={styles.userImage} />
                       <div className={styles.userInfo}>
                         <div className={styles.name}>{user.name}</div>
                         <div className={styles.username}>@{user.username}</div>
                       </div>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               )}

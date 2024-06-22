@@ -76,15 +76,13 @@ const TabComponent: React.FC= () => {
     );
   };
 
-  const ProfileTab: React.FC= () => {
+  const ProfileTab: React.FC= (props) => {
     const [tabIndex, setTabIndex] = useState(0);
     const [hoverIndex, setHoverIndex] = useState<number | null>(null);
     const [indicatorStyle, setIndicatorStyle] = useState({});
     const tabsRef = useRef<HTMLDivElement | null>(null);
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    const user = auth.currentUser;
   
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
       setTabIndex(newValue);
@@ -132,9 +130,8 @@ const TabComponent: React.FC= () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const user = auth.currentUser;
-        if (user) {
-          const userPostsRef = dbRef(database, `/Users/${user.uid}/posts`);
+        if (props.userId) {
+          const userPostsRef = dbRef(database, `/Users/${props.userId}/posts`);
           const postsQuery = query(userPostsRef, orderByChild('date'));
           const snapshot = await get(postsQuery);
           if (snapshot.exists()) {
@@ -156,10 +153,10 @@ const TabComponent: React.FC= () => {
       }
     };
     
-    if (user) {
+    if (props.userId) {
       fetchPosts();
     }
-  }, [user]);
+  }, [props.userId]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -220,7 +217,7 @@ const TabComponent: React.FC= () => {
                   image={post.type === 'image' ? post.location : null}
                   text={post.text}
                   date={post.date}
-                  user={user}
+                  user={props.userId}
                 />
               ))}
               </>
