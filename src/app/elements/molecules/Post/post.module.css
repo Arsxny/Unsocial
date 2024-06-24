@@ -18,6 +18,11 @@
   align-items: center;
 }
 
+.profileInfo:hover {
+  transform: scale(1.10);
+  transition: transform 0.3s ease-in-out;
+}
+
 .profileImage {
   width: 65px;
   height: 65px;
@@ -44,6 +49,7 @@
 .date {
   font-size: 0.9rem;
   color: #aaa;
+  padding-right: 1rem;
 }
 
 .postText {
@@ -57,7 +63,8 @@
     max-height: 300px;
     height: auto;
     border-radius: 30px;
-    object-fit: contain;
+    object-fit: cover;
+    margin-right: 1rem;
     margin-bottom: 1rem;
 }
 

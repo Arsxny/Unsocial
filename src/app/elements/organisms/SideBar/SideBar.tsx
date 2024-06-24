@@ -4,7 +4,7 @@ import { SideBarData } from "./SideBarData";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import styles from "./sideBar.module.css"
-import { SideBarType } from "@/app/types";
+/* import { SideBarType } from "@/app/types"; */
 import SendIcon from "@/app/assets/SendIcon.svg";
 import PostIcon from "@/app/assets/PostIcon.svg";
 import { signOutFirebase } from "@/app/backend/AuthService";
@@ -16,7 +16,7 @@ import SpringModal from "./PostModal";
 import { auth } from "@/app/firebase";
 import { getUserData } from "@/app/backend/UserDataService";
 
-const SideBar: React.FC<SideBarType> = () => {
+const SideBar: React.FC = () => {
 
     const user = auth.currentUser;
 

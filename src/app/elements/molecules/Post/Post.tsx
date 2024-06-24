@@ -18,14 +18,19 @@ import { getUserData } from '@/app/backend/UserDataService';
 import TruncatedText from '../TruncateText';
 import {ButtonBase} from '@mui/material';
 import { format } from 'date-fns';
+import Link from 'next/link';
 
 import UpvoteIcon from '@/app/assets/UpvoteIcon.svg'
+import { PostType } from '@/app/types';
 
-const Post: React.FC = ({ image, text, date, user }) => {
+const Post: React.FC<PostType> = ({ image, text, date, user }) => {
 
     const [profileImage, setProfileImage] = useState('');
     const [username, setUsername] = useState('');
     const [name, setName] = useState('');
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const currentUser = auth.currentUser;
     
     useEffect(() => {
         const fetchUserdata = async () => {
@@ -44,8 +49,13 @@ const Post: React.FC = ({ image, text, date, user }) => {
         fetchUserdata();
       }, [user]);
 
+    const toggleExpansion = () => {
+      setIsExpanded(!isExpanded);
+    };
+
     return (
       <ButtonBase 
+        onClick={toggleExpansion}
         sx={{
           textAlign: 'start',  
           borderRadius: 10, 
@@ -57,18 +67,25 @@ const Post: React.FC = ({ image, text, date, user }) => {
         }}>
         <div className={styles.container}>
           <div className={styles.header}>
-            <div className={styles.profileInfo}>
+            <Link
+              href={{
+                  pathname: user !== currentUser?.uid ? `/u/${username}` : null,
+                  query: { otherUserId: user }
+              }}
+              passHref
+              className={styles.profileInfo}
+            >
               <img src={profileImage} className={styles.profileImage} alt="Profile" />
               <div className={styles.userInfo}>
                 <div className={styles.name}>{name}</div>
                 <div className={styles.userName}>@{username}</div>
               </div>
-            </div>
+              </Link>
             <div className={styles.date}>{format(new Date(date), 'MMMM dd')}</div>
           </div>
-            <div style={{display: text.length >= 30 ? 'flex' : 'initial', justifyContent: text.length >= 30 ? 'space-between' : 'initial'}}>
+            <div style={{display: text.length >= 100 ? 'flex' : 'initial', justifyContent: text.length >= 100 ? 'space-between' : 'initial'}}>
                 <div className={styles.postText}>
-                  <TruncatedText text={text} wordLimit={50} />
+                  <TruncatedText text={text} wordLimit={50} isExpanded={isExpanded}/>
                 </div>
                 {image && <img src={image} className={styles.postImage} alt="Post" />}
             </div>

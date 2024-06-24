@@ -21,6 +21,9 @@ const ProfilePage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
 
+  const [followersCount, setFollowersCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);
+
   useEffect(() => {
     const fetchUserdata = async () => {
       try {
@@ -30,6 +33,8 @@ const ProfilePage: React.FC = () => {
           setProfileImage(userdata.profileImage ?? '');
           setUsername(userdata.username);
           setName(userdata.name);
+          setFollowersCount(userdata.followersCount);
+          setFollowingCount(userdata.followingCount);
         }
       } catch (error) {
         console.error('Error fetching following posts:', error);
@@ -43,7 +48,7 @@ const ProfilePage: React.FC = () => {
       <div className={styles.container}>
         <Header />
         <div className={styles.content}>
-            <SideBar profileImage={profileImage} username={username} name={name}/>
+            <SideBar/>
           <main className={styles.main}>
             <div className={styles.profileInfo}>
                 <div className={styles.profileDetails}>
@@ -59,8 +64,8 @@ const ProfilePage: React.FC = () => {
               </button>
             </div>
             <button className={styles.followInfo}>
-              <p className={styles.followCount}> 116 <span className={styles.followText}>Following</span></p>
-              <p className={styles.followCount}> 37.9K <span className={styles.followText}>Followers</span></p>
+              <p className={styles.followCount}> {followingCount} <span className={styles.followText}>Following</span></p>
+              <p className={styles.followCount}> {followersCount} <span className={styles.followText}>Followers</span></p>
             </button>
             <ProfileTab userId={user?.uid}/>
           </main>

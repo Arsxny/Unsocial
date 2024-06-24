@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const TruncatedText = ({ text, wordLimit }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const TruncatedText = ({ text, wordLimit, isExpanded }) => {
 
   const words = text.split(" ");
   const isTruncatable = words.length > wordLimit;
@@ -12,7 +11,7 @@ const TruncatedText = ({ text, wordLimit }) => {
     <div>
       <p>{displayText}</p>
       {isTruncatable && (
-        <button onClick={() => setIsExpanded(!isExpanded)} style={{color: 'grey'}}>
+        <button style={{color: 'grey'}}>
           {isExpanded ? "show less" : "...more"}
         </button>
       )}

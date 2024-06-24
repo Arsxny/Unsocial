@@ -14,6 +14,9 @@
     border-left-color: #333;
     border-left-width: 0.25px;
     width: 100%;
+    margin-right: 25rem;
+    border-right-color: #333;
+    border-right-width: 0.25px;
   }
   
   .footer {

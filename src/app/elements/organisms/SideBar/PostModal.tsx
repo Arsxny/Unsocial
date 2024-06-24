@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -14,12 +14,13 @@ import { auth, database, storage } from '@/app/firebase';
 import { ref as dbRef, set, push, serverTimestamp } from "firebase/database";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useAuthStore } from '@/app/backend/AuthService';
+import { Modaltype } from '@/app/types';
 
 const customBackdropStyle = {
     backgroundColor: 'rgba(108, 122, 137, 0.3)',
   };
 
-const SpringModal = (props) => {
+const SpringModal: React.FC<Modaltype> = (props) => {
   const { open, handleClose } = props;
 
   const user = auth.currentUser;
@@ -30,8 +31,8 @@ const SpringModal = (props) => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const router = useRouter();
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files![0];
     if (file) {
       setImageFile(file);
       setSelectedImage(URL.createObjectURL(file));
@@ -129,6 +130,7 @@ const SpringModal = (props) => {
             <Button
               onClick={post}
               variant="outlined"
+              type="button"
               sx={{
                 borderColor: '#333',
                 textTransform: 'none',

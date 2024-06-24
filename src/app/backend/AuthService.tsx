@@ -10,7 +10,7 @@ import { create } from "zustand";
 
 const useAuthStore = create<AuthType>((set, get) => ({
   user: null,
-  setUser: (user: User) => set({user}),
+  setUser: (user: User | null) => set({ user }),
 }));
 
 const createUserAccount = async (
