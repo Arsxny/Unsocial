@@ -52,7 +52,6 @@ const SingUpPage: React.FC = () => {
         setStep(2);
       } catch (error) {
         setError("Error creating user account.");
-        console.error("Error:", error);
       }
     };
 

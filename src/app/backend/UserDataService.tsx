@@ -67,4 +67,21 @@ const followUser = async (currentUserId, otherUserId) => {
     }
   };
 
-export {updateUserData, getUserData, followUser, unfollowUser};
+  const getUnfollowedUsers = async (currentUserId) => {
+    try {
+      const usersRef = dbRef(database, 'Users');
+      const snapshot = await get(usersRef);
+      if (snapshot.exists()) {
+        const allUsers = snapshot.val();
+        const unfollowedUsers = Object.keys(allUsers).filter(uid => uid !== currentUserId && !allUsers[currentUserId].following?.[uid]);
+        return unfollowedUsers.map(uid => ({ uid, ...allUsers[uid] }));
+      } else {
+        return [];
+      }
+    } catch (error) {
+      console.error('Error fetching unfollowed users:', error);
+      throw error;
+    }
+  };
+
+export {updateUserData, getUserData, followUser, unfollowUser, getUnfollowedUsers};
