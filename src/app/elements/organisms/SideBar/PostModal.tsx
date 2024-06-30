@@ -4,7 +4,6 @@ import React, { ChangeEvent, useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
 import { useSpring, animated } from 'react-spring';
 import { Button, SxProps, TextField } from '@mui/material';
 import { useRouter } from 'next/navigation';
@@ -13,7 +12,6 @@ import Galleryicon from '@/app/assets/GalleryIcon.svg';
 import { auth, database, storage } from '@/app/firebase';
 import { ref as dbRef, set, push, serverTimestamp } from "firebase/database";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
-import { useAuthStore } from '@/app/backend/AuthService';
 import { Modaltype } from '@/app/types';
 
 const customBackdropStyle = {
@@ -72,20 +70,16 @@ const SpringModal: React.FC<Modaltype> = (props) => {
   };
 
   const post = async () => {
-    console.log('posting');
-    //create reference for new post
     const userPostsRef = dbRef(database, `/Users/${user!.uid}/posts`);
     const newPostRef = push(userPostsRef);
 
     try {
       if (imageFile) {
-        // If image is selected, upload it to Firebase Storage
         const storageReference = storageRef(storage, `post_images/${user!.uid}/${imageFile.name}`);
         await uploadBytes(storageReference, imageFile);
 
         const downloadURL = await getDownloadURL(storageReference);
 
-        // Set post in database with image
         await set(newPostRef, {
           text: postText,
           date: serverTimestamp(),
@@ -94,7 +88,6 @@ const SpringModal: React.FC<Modaltype> = (props) => {
           type: 'image',
         });
       } else {
-        // Set post in database without image
         await set(newPostRef, {
           text: postText,
           date: serverTimestamp(),
@@ -113,7 +106,6 @@ const SpringModal: React.FC<Modaltype> = (props) => {
       aria-labelledby="spring-modal-title"
       aria-describedby="spring-modal-description"
       open={open}
-/*       onClose={handleClose} */
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{

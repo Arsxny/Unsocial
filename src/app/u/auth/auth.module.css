@@ -42,7 +42,6 @@
     outline-color: black;
     border-radius: 5px;
     border: 1px solid grey;
-/*     color: white; */
     color: black;
     font-size: 1rem;
     padding: 15px;
@@ -62,7 +61,6 @@
     background-color: #4a5568;
     transition: background-color 0.3s;
   }
-  /* Pseudo-classes */
   .inputButton:hover {
     background-color: #2d3748;
   }
@@ -92,10 +90,8 @@
   .inputBox:focus + .inputLabel,
   .inputLabel.focused {
     font-size: 0.9rem;
-/*     color: white; */
     color: black;
     margin-bottom: 3.2rem;
-/*     background-color: #1e1e1e;  */
     background-color: white;
     padding: 0 5px;
     z-index: 3;

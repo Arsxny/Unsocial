@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState, useEffect, useRef, ReactNode, RefObject } from 'react';
+import React, { createContext, useState, useEffect, useRef, ReactNode } from 'react';
 import { HeightContextProps } from '@/app/types';
 import { auth } from '@/app/firebase';
 

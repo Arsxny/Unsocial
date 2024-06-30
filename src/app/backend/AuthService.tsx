@@ -1,7 +1,6 @@
 
-import { auth, database, storage } from "@/app/firebase"
+import { auth, storage } from "@/app/firebase"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from "firebase/auth";
-import { ref as dbRef, update } from "firebase/database";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 import { updateUserData } from "./UserDataService";
 import { AuthType } from "../types";

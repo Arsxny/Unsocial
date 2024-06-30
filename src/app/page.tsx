@@ -2,14 +2,11 @@
 import React, {useEffect} from "react";
 import StartPage from "@/app/u/start/StartPage";
 import { useAuthStore } from "./backend/AuthService";
-import { User } from "firebase/auth";
 import { auth, onAuthStateChanged } from "./firebase";
 import HomePage from "./u/home/HomePage";
-import { useRouter } from "next/navigation";
 
 export default function Main() {
   const { user, setUser } = useAuthStore();
-  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

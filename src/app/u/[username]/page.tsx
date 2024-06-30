@@ -1,18 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './other.module.css';
-import SearchBar from '@/app/elements/molecules/SearchBar/SearchBar';
-import AppIcon from "@/app/assets/AppIcon.png";
 import SideBar from '@/app/elements/organisms/SideBar/SideBar';
 import { getUserData, followUser, unfollowUser } from '@/app/backend/UserDataService';
 import { auth} from "@/app/firebase";
 import Header from '@/app/elements/organisms/Header/Header';
-import { HeightContext, HeightProvider } from '@/app/elements/context/HeightContext';
-import OptionIcon from '@/app/assets/OptionIcon.svg'
+import { HeightProvider } from '@/app/elements/context/HeightContext';
 import { ProfileTab } from '@/app/elements/molecules/TabPanel/TabPanel';
-import { useAuthStore } from '@/app/backend/AuthService';
-import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -22,7 +17,6 @@ const OtherUserPage: React.FC = () => {
 
   const currentUser = auth.currentUser;
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   const otherUserId  = searchParams.get("otherUserId");
 

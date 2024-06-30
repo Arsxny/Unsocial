@@ -13,12 +13,12 @@ export const SideBarData = [
     {
         title: "Explore", 
         icon: <ExploreTab stroke="currentColor" fill="currentColor"/>,
-        link: "/u/explore"
+        link: ""
     },
     {
         title: "Message", 
         icon: <MessageTab stroke="currentColor" fill="currentColor"/>,
-        link: "/u/message"
+        link: ""
     },
     {
         title: "Profile", 

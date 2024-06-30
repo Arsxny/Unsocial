@@ -1,18 +1,13 @@
 "use client";
 
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import Head from 'next/head';
+import React, { useContext, useState } from 'react';
 import styles from './header.module.css';
 import SearchBar from '@/app/elements/molecules/SearchBar/SearchBar';
 import AppIcon from "@/app/assets/unsocialLogo.png";
-import SideBar from '@/app/elements/organisms/SideBar/SideBar';
-import {TabComponent} from '@/app/elements/molecules/TabPanel/TabPanel';
-import { getUserData } from '@/app/backend/UserDataService';
 import { auth} from "@/app/firebase"
 import { HeightContext } from '../../context/HeightContext';
 import { ref as dbRef, get } from 'firebase/database'
 import { database } from '@/app/firebase';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Header: React.FC = () => {

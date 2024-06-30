@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useState, useContext, useRef, useEffect } from 'react';
-import { Tabs, Tab, Box, Typography, Button } from '@mui/material';
-import { PostType, ProfileTabType, TabComponentType, TabProps } from '../../../types';
+import { Tabs, Tab, Box } from '@mui/material';
+import { PostType, ProfileTabType, TabProps } from '../../../types';
 import { ProfileTabStyles, tabStyles } from './TabStyles';
 import { HeightContext } from '../../context/HeightContext';
 import { ref as dbRef, get, query, orderByChild } from 'firebase/database';
-import { auth, database, storage } from "@/app/firebase";
+import { auth, database } from "@/app/firebase";
 import Post from '../Post/Post';
-import { useAuthStore } from '@/app/backend/AuthService';
-import Masonry from '@mui/lab/Masonry';
-import { getUserData } from '@/app/backend/UserDataService';
 import { getFollowedUsersPosts, getUnfollowedUsersPosts } from '@/app/backend/PostService';
 
 const TabPanel = (props: TabProps) =>  {
@@ -42,7 +39,6 @@ const TabComponent: React.FC= () => {
   const [browsePosts, setBrowsePosts] = useState<PostType[]>([]);
   const [loading, setLoading] = useState(true);
   const currentUser = auth.currentUser;
-  const [followId, setFollowId] = useState('');
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabIndex(newValue);

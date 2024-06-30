@@ -2,16 +2,13 @@
 import React, {useState, useEffect, useContext} from "react";
 import { SideBarData } from "./SideBarData";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import styles from "./sideBar.module.css"
-/* import { SideBarType } from "@/app/types"; */
 import SendIcon from "@/app/assets/SendIcon.svg";
 import PostIcon from "@/app/assets/PostIcon.svg";
 import { signOutFirebase } from "@/app/backend/AuthService";
 import { HeightContext } from "../../context/HeightContext";
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Avatar, Button } from "@mui/material";
-import { Modal } from "@mui/material";
-import { useSpring, animated } from "react-spring";
+import { Drawer } from "@mui/material";
 import SpringModal from "./PostModal";
 import { auth } from "@/app/firebase";
 import { getUserData } from "@/app/backend/UserDataService";

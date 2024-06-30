@@ -1,14 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import Head from 'next/head';
+import React, { useState } from 'react';
 import styles from '@/app/u/home/HomePage.module.css';
-import SearchBar from '@/app/elements/molecules/SearchBar/SearchBar';
-import AppIcon from "@/app/assets/AppIcon.png";
 import SideBar from '@/app/elements/organisms/SideBar/SideBar';
 import {TabComponent} from '@/app/elements/molecules/TabPanel/TabPanel';
-import { getUserData } from '@/app/backend/UserDataService';
-import { auth} from "@/app/firebase";
 import Header from '@/app/elements/organisms/Header/Header';
 import RecommendationsDrawer from '@/app/elements/molecules/RecomDrawer';
 import { IconButton } from '@mui/material';

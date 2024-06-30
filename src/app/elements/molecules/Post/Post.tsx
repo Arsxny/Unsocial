@@ -1,18 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
-import { useSpring, animated } from 'react-spring';
-import { Button, SxProps, TextField } from '@mui/material';
-import { useRouter } from 'next/navigation';
-import BackArrow from '@/app/assets/BackArrow.svg';
-import Galleryicon from '@/app/assets/GalleryIcon.svg';
-import { auth, database, storage } from '@/app/firebase';
-import { ref as dbRef, set, push, serverTimestamp } from "firebase/database";
-import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
+import { auth } from '@/app/firebase';
 import styles from "@/app/elements/molecules/Post/post.module.css";
 import { getUserData } from '@/app/backend/UserDataService';
 import TruncatedText from '../TruncateText';
@@ -83,7 +72,7 @@ const Post: React.FC<PostType> = ({ image, text, date, user }) => {
               </Link>
             <div className={styles.date}>{format(new Date(date), 'MMMM dd')}</div>
           </div>
-            <div style={{display: text.length >= 100 ? 'flex' : 'initial', justifyContent: text.length >= 100 ? 'space-between' : 'initial'}}>
+            <div style={{display: text.length >= 200 ? 'flex' : 'initial', justifyContent: text.length >= 200 ? 'space-between' : 'initial'}}>
                 <div className={styles.postText}>
                   <TruncatedText text={text} wordLimit={50} isExpanded={isExpanded}/>
                 </div>

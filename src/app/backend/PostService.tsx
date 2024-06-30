@@ -1,6 +1,5 @@
 import { ref as dbRef, get, query, orderByChild } from 'firebase/database';
-import { auth, database, storage } from "@/app/firebase";
-import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
+import { database } from "@/app/firebase";
 import { getUserData } from './UserDataService';
 import { PostType } from '../types';
 

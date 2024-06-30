@@ -3,9 +3,8 @@ import React, {ChangeEvent, FormEvent, useState} from "react";
 import { useRouter } from "next/navigation";
 import styles from "@/app/u/auth/auth.module.css";
 import { createUserAccount } from "@/app/backend/AuthService";
-import Link from "next/link";
 import Loader from "@/app/assets/loader.svg";
-import { useSpring, animated } from "react-spring";
+import { animated } from "react-spring";
 import PlusIcon from "@/app/assets/PlusIcon.svg";
 
 const ProfileInfo: React.FC = (props) => {

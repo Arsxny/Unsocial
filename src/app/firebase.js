@@ -17,15 +17,14 @@ const firebaseConfig = {
   storageBucket: "gs://social-web-c9e4e.appspot.com"
 };
 
-// Initialize Firebase
 let app;
 if (!getApps().length) {
   app = initializeApp(firebaseConfig);
   if (typeof window !== 'undefined') {
-    getAnalytics(app); // Initialize Analytics on the client side
+    getAnalytics(app); 
   }
 } else {
-  app = getApps()[0]; // If already initialized, use the existing instance
+  app = getApps()[0];
 }
 
 const auth = getAuth(app);
