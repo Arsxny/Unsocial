@@ -1,17 +1,4 @@
 
-.sideBar {
-    width: 250px;
-    background-color: #121212;
-    border-right: 0.25px solid #333;
-    position: sticky;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-height: 100vh;
-    top: 0;
-    bottom: 0;
-}
-
 .sideBarList {
     flex-grow: 1;
     overflow-y: auto;

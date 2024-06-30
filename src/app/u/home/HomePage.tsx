@@ -13,42 +13,18 @@ import Header from '@/app/elements/organisms/Header/Header';
 import RecommendationsDrawer from '@/app/elements/molecules/RecomDrawer';
 import { IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { HeightProvider } from '@/app/elements/context/HeightContext';
 
 const HomePage: React.FC = () => {
 
-  const user = auth.currentUser;
-
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const drawerWidth = 300;
-
-  const [profileImage, setProfileImage] = useState('');
-  const [username, setUsername] = useState('');
-  const [name, setName] = useState('');
-
-  useEffect(() => {
-    const fetchUserdata = async () => {
-      try {
-        const user = auth.currentUser;
-        if (user) {
-          const userdata = await getUserData(user.uid);
-          setProfileImage(userdata.profileImage ?? '');
-          setUsername(userdata.username);
-          setName(userdata.name);
-        }
-      } catch (error) {
-        console.error('Error fetching following posts:', error);
-      }
-    };
-
-    fetchUserdata();
-  }, [user]);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
 
     return (
+      <HeightProvider>
       <div className={styles.container}>
         <Header />
         <div className={styles.content}>
@@ -73,6 +49,7 @@ const HomePage: React.FC = () => {
             <RecommendationsDrawer open={drawerOpen} toggleDrawer={toggleDrawer} />
         </div>
       </div>
+      </HeightProvider>
     );
   };
 

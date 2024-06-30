@@ -42,7 +42,6 @@ const getFollowedUsersPosts = async (currentUserId: string) => {
                 allPosts = [...allPosts, ...postsArray];
             }
         }
-        // Sort all posts by date in descending order
         allPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
         return allPosts;
     } catch (error) {
@@ -77,8 +76,6 @@ const getUnfollowedUsersPosts = async (currentUserId: string) => {
                     allPosts = [...allPosts, ...postsArray];
                 }
             }
-
-            // Sort all posts by date in descending order
             allPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
         }
 

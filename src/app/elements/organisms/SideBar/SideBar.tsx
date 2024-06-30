@@ -41,17 +41,8 @@ const SideBar: React.FC = () => {
   
       fetchUserdata();
     }, [user]);
-
-    const heightContext = useContext(HeightContext);
-
-    if (!heightContext) {
-        return null;
-    }
-    
-    const { height } = heightContext;
     
     const [activeLink, setActiveLink] = useState('');
-    const router = useRouter();
     const pathname = usePathname()
 
     const [open, setOpen] = React.useState(false);
@@ -66,16 +57,24 @@ const SideBar: React.FC = () => {
         console.log("is it open?", open);
     }, [open]);
 
+    const heightContext = useContext(HeightContext);
+
+    if (!heightContext) {
+        return null;
+    }
+    
+    const { height } = heightContext;
+
     return (
-        <div className={styles.sideBar} style={{}}>
-            <Drawer
-                variant="permanent"
-                sx={{
-                width: 250,
-                flexShrink: 0,
-                [`& .MuiDrawer-paper`]: { width: 250, boxSizing: 'border-box', backgroundColor: '#121212',  top: height + 1, bottom: 0, paddingLeft: 5  },
-                }}
-            >
+        <Drawer
+            variant="permanent"
+            anchor="left"
+            sx={{
+            width: 250,
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: { width: 250, boxSizing: 'border-box', backgroundColor: '#121212',  top: height + 1, bottom: 0, paddingLeft: 5  },
+            }}
+        >
             <div className={styles.profileInfo}>
                 <img src={profileImage} className={styles.profileImage} />
                 <div className={styles.userInfo}>
@@ -112,8 +111,7 @@ const SideBar: React.FC = () => {
                 </div>
                 <div className={styles.logOutText}>Log out</div>
             </Link>
-            </Drawer>
-        </div>
+        </Drawer>
     );
 };
 

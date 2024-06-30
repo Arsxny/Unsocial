@@ -11,9 +11,9 @@ const TruncatedText = ({ text, wordLimit, isExpanded }) => {
     <div>
       <p>{displayText}</p>
       {isTruncatable && (
-        <button style={{color: 'grey'}}>
+        <div style={{color: 'grey'}}>
           {isExpanded ? "show less" : "...more"}
-        </button>
+        </div>
       )}
     </div>
   );

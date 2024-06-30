@@ -21,20 +21,11 @@ const Header: React.FC = () => {
 
     const currentUser = auth.currentUser;
 
-    const router = useRouter();
-
     if (!heightContext) {
         return null;
     }
 
     const { ref } = heightContext;
-
-/*     const handleClick = (user) => {
-      router.push({
-        pathname: `/u/other/@${user.username}`, 
-        query: { otherUserId: user.key }
-      });
-    }; */
 
     const searchUsers = async (query) => {
         if (!query) {

@@ -15,7 +15,6 @@ const getUserData = async (uid: string) => {
         if (snapshot.exists()) {
             const userData = snapshot.val();
 
-            // Count followers and following
             const followersCount = userData.followers ? Object.keys(userData.followers).length : 0;
             const followingCount = userData.following ? Object.keys(userData.following).length : 0;
 
@@ -31,13 +30,11 @@ const getUserData = async (uid: string) => {
 
 const followUser = async (currentUserId, otherUserId) => {
     try {
-      // Update current user's following list
       const userFollowingRef = dbRef(database, `Users/${currentUserId}/following`);
       await update(userFollowingRef, {
         [otherUserId]: true
       });
   
-      // Optionally, update other user's followers list
       const otherUserFollowersRef = dbRef(database, `Users/${otherUserId}/followers`);
       await update(otherUserFollowersRef, {
         [currentUserId]: true
@@ -52,11 +49,9 @@ const followUser = async (currentUserId, otherUserId) => {
 
   const unfollowUser = async (currentUserId, otherUserId) => {
     try {
-      // Remove otherUserId from current user's following list
       const userFollowingRef = dbRef(database, `Users/${currentUserId}/following/${otherUserId}`);
       await set(userFollowingRef, null);
   
-      // Optionally, remove currentUserId from other user's followers list
       const otherUserFollowersRef = dbRef(database, `Users/${otherUserId}/followers/${currentUserId}`);
       await set(otherUserFollowersRef, null);
   
